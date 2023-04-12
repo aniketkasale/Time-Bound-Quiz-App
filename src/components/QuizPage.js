@@ -54,9 +54,7 @@ const QuizPage = () => {
 
           <div className="footer">
             <button
-              disabled={
-                selectedChoice[currentQue - 1] !== undefined || currentQue === 1
-              }
+              disabled={currentQue === 1}
               onClick={() => setCurrentQue(currentQue - 1)}
             >
               Back
@@ -70,15 +68,17 @@ const QuizPage = () => {
                 Submit
               </button>
             )}
-            <button
-              disabled={
-                selectedChoice[currentQue - 1] === undefined ||
-                currentQue === quiz.length
-              }
-              onClick={() => setCurrentQue(currentQue + 1)}
-            >
-              Next
-            </button>
+            {currentQue !== quiz.length && (
+              <button
+                disabled={
+                  selectedChoice[currentQue - 1] === undefined ||
+                  currentQue === quiz.length
+                }
+                onClick={() => setCurrentQue(currentQue + 1)}
+              >
+                Next
+              </button>
+            )}
           </div>
         </div>
         {selectedChoice.length > 0 && (

@@ -231,6 +231,7 @@
   border: none;
   border-radius: 10px;
   display: block;
+  cursor: pointer;
 }
 .footer button:disabled {
   background-image: linear-gradient(
