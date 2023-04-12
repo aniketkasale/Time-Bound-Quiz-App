@@ -7,6 +7,7 @@ This is a web application built using ReactJS that allows users to take a quiz w
 - Displays a question and four answer options at a time.
 - Includes a timer that stops when the time runs out and displays the user's score.
 - Provides a review answer section where users can go back and check their answers.
+- Offers multi-theme support for users to switch between different themes.
 - Offers an aesthetically pleasing design.
 
 ## Installation
@@ -26,6 +27,14 @@ The app will run on `http://localhost:3000` in your browser.
 4. Once you answer a question, you cannot change your answer.
 5. After you have answered all the questions, click the "Submit" button to see your score.
 6. Click the answer on "Review Answers" tab to get back to question.
+
+## Tech Stack
+
+This application was built using the following technologies:
+
+- ReactJS: a JavaScript library for building user interfaces.
+- React Router DOM: a routing library for React applications.
+- Redux: a state management library for JavaScript applications.
 
 ## Contributing
 
