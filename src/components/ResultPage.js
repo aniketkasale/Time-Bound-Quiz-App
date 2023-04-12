@@ -6,27 +6,30 @@ const ResultPage = () => {
   const [result, setResult] = useState([]);
   const navigate = useNavigate();
 
+  // get quiz results from user's choices
   const getResult = () => {
-    const selectedChoices = JSON.parse(
-      localStorage.getItem("selected_choices")
-    );
-    const resultArray = quiz.map((que, i) => {
-      return { ...que, usersAns: selectedChoices[i] };
+    const storedChoices = localStorage.getItem("selected_choices");
+    const userChoices = storedChoices ? JSON.parse(storedChoices) : [];
+    const quizData = quiz.map((que, i) => {
+      return { ...que, usersAns: userChoices[i] }; // Subtract 1 because IDs start at 1
     });
-    return resultArray;
+    return quizData;
   };
+
+  // Set quiz results after component mounts
   useEffect(() => {
     setResult(getResult());
   }, []);
 
+  // Calculate the user's score
+  const score = result.filter(
+    (question) => question.correctAnswer === question.usersAns
+  ).length;
+
   return (
     <div className="result-page">
       <div className="result-container">
-        <p>
-          Score:
-          {" " +
-            result.filter((que) => que?.correctAnswer === que?.usersAns).length}
-        </p>
+        <p>Score: {score}</p>
         {result.length > 0 &&
           result.map((que, i) => {
             return (
