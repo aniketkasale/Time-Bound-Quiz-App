@@ -7,16 +7,14 @@ const QuizPage = () => {
   const navigate = useNavigate();
   const [currentQue, setCurrentQue] = useState(1);
   const [selectedChoice, setSelectedChoice] = useState([]);
-  const [timer, setTimer] = useState(quiz.length * 30);
+  const [timer, setTimer] = useState(quiz.length * 300);
   const theme = useSelector((store) => store.theme.currentTheme);
 
   const handleSelectChoice = (choice) => {
-    if (!selectedChoice[currentQue - 1]) {
-      const oldArray = [...selectedChoice];
-      oldArray[currentQue - 1] = choice;
-      setSelectedChoice(oldArray);
-      localStorage.setItem("selected_choices", JSON.stringify(oldArray));
-    }
+    const oldArray = [...selectedChoice];
+    oldArray[currentQue - 1] = choice;
+    setSelectedChoice(oldArray);
+    localStorage.setItem("selected_choices", JSON.stringify(oldArray));
   };
   useEffect(() => {
     let myInterval = setInterval(() => {
@@ -42,11 +40,9 @@ const QuizPage = () => {
             {quiz[currentQue - 1].choices.map((choice, i) => {
               return (
                 <button
-                  disabled={
-                    selectedChoice[currentQue - 1] !== undefined &&
-                    selectedChoice[currentQue - 1] !== choice
-                  }
-                  className="choice"
+                  className={`choice ${
+                    selectedChoice[currentQue - 1] === choice && "selected"
+                  }`}
                   onClick={() => handleSelectChoice(choice)}
                   key={i}
                 >
@@ -59,7 +55,7 @@ const QuizPage = () => {
           <div className="footer">
             <button
               disabled={
-                selectedChoice[currentQue - 1] !== undefined && currentQue === 1
+                selectedChoice[currentQue - 1] !== undefined || currentQue === 1
               }
               onClick={() => setCurrentQue(currentQue - 1)}
             >

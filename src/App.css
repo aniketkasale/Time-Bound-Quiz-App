@@ -150,7 +150,7 @@
   color: #fff;
   text-decoration: none;
 }
-.dark .quiz-container .choice:disabled {
+.dark .quiz-container .choice.selected {
   background-image: linear-gradient(
     to right,
     #16222a 0%,
@@ -191,7 +191,7 @@
   color: #374151;
   text-decoration: none;
 }
-.light .quiz-container .choice:disabled {
+.light .quiz-container .choice.selected {
   background-image: linear-gradient(
     to right,
     #16222a 0%,
@@ -204,7 +204,7 @@
   text-transform: uppercase;
   transition: 0.5s;
   background-size: 200% auto;
-  color: #6b7280;
+  color: #afb5c0;
   border-radius: 10px;
   display: block;
 }
