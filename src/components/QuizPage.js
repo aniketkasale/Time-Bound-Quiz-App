@@ -7,7 +7,7 @@ const QuizPage = () => {
   const navigate = useNavigate();
   const [currentQue, setCurrentQue] = useState(1);
   const [selectedChoice, setSelectedChoice] = useState([]);
-  const [timer, setTimer] = useState(quiz.length * 300);
+  const [timer, setTimer] = useState(quiz.length * 30);
   const theme = useSelector((store) => store.theme.currentTheme);
 
   const handleSelectChoice = (choice) => {
