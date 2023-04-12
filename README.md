@@ -34,4 +34,3 @@ Contributions are welcome! If you have any ideas, suggestions, or bug reports, p
 ## Acknowledgements
 
 This app was built as a assignment by Vishal Rajput
-# Time-Bound-Quiz-App

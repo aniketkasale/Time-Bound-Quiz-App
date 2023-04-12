@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useNavigate } from "react-router-dom";
+import "./App.css";
+import ThemeSwitch from "./components/ThemeSwitch";
+import { useSelector } from "react-redux";
+export default function App() {
+  const navigate = useNavigate();
+  const theme = useSelector((store) => store.theme.currentTheme);
 
-function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className={`home-container ${theme}-home-container ${theme}`}>
+      <ThemeSwitch />
+      <div className="welcome-window">
+        <h1>Welcome to the Challenge!</h1>
+        <h2>You will be presented with 3 MCQs.</h2>
+        <p>Can you score 100%?</p>
+        <button
+          onClick={() => {
+            navigate("/quiz");
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          Start quiz!
+        </button>
+      </div>
     </div>
   );
 }
-
-export default App;
